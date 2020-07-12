@@ -7,27 +7,22 @@ package tree2;
  * @date: 2020/7/10 15:58
  * @version: 1.0
  */
-public class Node {
+public class AvlNode {
 
     private Integer number;
 
-    private Object object;
+    public AvlNode parentNode;
 
-    public Node left;
+    public AvlNode left;
 
-    public Node right;
+    public AvlNode right;
 
-    public Node (Integer number, Object o) {
+    public AvlNode (Integer number) {
         this.number = number;
-        this.object = o;
     }
 
     public Integer getNumber() {
         return number;
-    }
-
-    public Object getObject() {
-        return object;
     }
 
 }
