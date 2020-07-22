@@ -39,13 +39,31 @@ public class TestThread {
         //run this.isAlive():false
         //this == Thread.currentThread() ? false
 
-        InterruptThread interruptThread = new InterruptThread();
+        /*InterruptThread interruptThread = new InterruptThread();
         interruptThread.start();
         try {
             Thread.sleep(200);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        interruptThread.interrupt();
+        interruptThread.interrupt();*/
+
+        SyncThread syncThread = new SyncThread();
+        SyncThread2 syncThread2 = new SyncThread2();
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                syncThread.print1(syncThread2);
+            }
+        });
+        thread.start();
+
+        Thread thread1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                syncThread2.print();
+            }
+        });
+        thread1.start();
     }
 }
